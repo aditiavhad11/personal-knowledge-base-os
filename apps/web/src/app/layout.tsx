@@ -1,15 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import "@fontsource-variable/inter";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import NavBar from "@/components/NavBar";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-
 export const metadata: Metadata = {
   title: "Knowledge Base OS",
   description:
-    "A local-first personal knowledge base: search, browse, visualize, and chat with your markdown notes — backed by wikilinks, a backlinks graph, and grounded citations.",
+    "A local-first personal knowledge base: search, browse, visualize, and chat with your markdown notes.",
 };
 
 export default function RootLayout({
@@ -18,8 +16,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.variable}>
-      <body className="min-h-screen bg-ink-50 text-ink-900 antialiased">
+    <html lang="en">
+      <body
+        className="min-h-screen bg-ink-50 text-ink-900 antialiased"
+        style={{
+          fontFamily: '"Inter Variable", system-ui, sans-serif',
+        }}
+      >
         <NavBar />
         <main className="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6">
           <ErrorBoundary>{children}</ErrorBoundary>
